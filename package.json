@@ -1,0 +1,45 @@
+{
+  "name": "sakin",
+  "version": "0.1.0",
+  "description": "A simple yet versatile and efficient static site generator",
+  "homepage": "http://oss6.github.io/sakin",
+  "author": {
+    "name": "Ossama Edbali",
+    "email": "ossedb@gmail.com",
+    "url": "oss6.github.io"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "keywords": [
+    "generator",
+    "static",
+    "site",
+    "generator",
+    "static",
+    "site",
+    "web",
+    "site"
+  ],
+  "repository": "oss6/sakin",
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-coveralls": "^0.1.0"
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "marked": "^0.3.5",
+    "node-dir": "^0.1.11"
+  }
+}

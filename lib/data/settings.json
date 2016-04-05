@@ -1,0 +1,31 @@
+{
+  "url": "http://127.0.0.1:8000/",
+  "root_url": "/",
+  "author": "",
+  "title": "My awesome blog",
+  "subtitle": "Powered by sakin",
+  "description": "An amazing blog",
+  "paginate": 10,
+  "asides": ["recent_posts.html", "github.html"],
+  "smart_generation": true,
+
+  "contents_path": "contents",
+  "pages_dir": "pages",
+  "articles_dir": "articles",
+  "output_dir": "output",
+
+  "email": "",
+  "gist_embedding": true,
+
+  "github_user": "",
+  "github_repo_count": 5,
+  "twitter_tweet_button": true,
+  "facebook_share_button": true,
+  "google_analytics_tracking_id": "",
+
+  "disqus_short_name": "",
+  "disqus_show_comment_count": false,
+
+  "rsync_ssh_user": "",
+  "rsync_document_root": ""
+}
