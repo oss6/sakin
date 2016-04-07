@@ -40,6 +40,9 @@
   "license": "MIT",
   "dependencies": {
     "marked": "^0.3.5",
-    "node-dir": "^0.1.11"
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
+    "node-dir": "^0.1.11",
+    "nunjucks": "^2.4.1"
   }
 }
