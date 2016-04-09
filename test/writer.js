@@ -13,20 +13,20 @@ describe('writer', function () {
         'contents'
     ];
 
-    var checkExistsAll = function (cb) {
+    var checkExistence = function (checkExists, cb) {
         var toGo = paths.length;
 
         paths.forEach(function (p) {
             fs.stat(path.join('.', p), function (err) {
                 if (err) {
                     if (err.code === 'ENOENT') {
-                        assert(false, 'The file should exist');
+                        assert(!checkExists, checkExists ? 'The file should exist' : '');
                     }
                 } else {
-                    assert(true);
+                    assert(checkExists, !checkExists ? 'The file should not exist' : '');
                 }
 
-                if (--toGo === 0) {
+                if (--toGo === 0 && cb !== undefined) {
                     cb();
                 }
             });
@@ -34,13 +34,23 @@ describe('writer', function () {
     };
 
     describe('createProject', function () {
-
-        writer.createProject(function () {
-            checkExistsAll(function () {
-                writer.clearWorkspace();
+        it('should create all the necessary files', function (done) {
+            writer.createProject(function () {
+                checkExistence(true, function () {
+                    writer.clearWorkspace(done);
+                });
             });
         });
+    });
 
+    describe('clearWorkspace', function () {
+        it('should clear all the created files', function (done) {
+            writer.createProject(function () {
+                writer.clearWorkspace(function () {
+                    checkExistence(false, done);
+                });
+            });
+        });
     });
 
 });
