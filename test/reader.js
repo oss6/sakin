@@ -9,7 +9,7 @@ describe('reader', function () {
     describe('getContent', function () {
 
         var tests = [
-            {args: ['---\nkey: value\n---'], expected: [{key: 'value'}, []]}
+            {args: ['---\nkey: value\n---'], expected: [{key: 'value'}, '']}
         ];
 
         tests.forEach(function (test, i) {

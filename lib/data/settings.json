@@ -1,5 +1,5 @@
 {
-  "url": "http://127.0.0.1:8000/",
+  "url": "http://example.com/",
   "root_url": "/",
   "author": "",
   "title": "My awesome blog",
@@ -8,11 +8,6 @@
   "paginate": 10,
   "asides": ["recent_posts.html", "github.html"],
   "smart_generation": true,
-
-  "contents_path": "contents",
-  "pages_dir": "pages",
-  "articles_dir": "articles",
-  "output_dir": "output",
 
   "email": "",
   "gist_embedding": true,

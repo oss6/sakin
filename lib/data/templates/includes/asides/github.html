@@ -1,0 +1,13 @@
+{% if site.github_user %}
+<section class="aside-entry">
+    <h1>GitHub Repos</h1>
+    <ul>
+        {% for repo in gh_repos %}
+        <li>
+            <a href="{{ repo.html_url}}">{{ repo.name }}</a>
+            <p>{{ repo.description }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
