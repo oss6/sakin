@@ -5,16 +5,21 @@
     {% endif %}
 </section>
 
-<!-- Page Header -->
-<!-- Set your background image for this header on the line below. -->
 <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>{{ title }}</h1>
+                <div class="{{ 'site-heading' if g.type === 'index' else ('page-heading' if g.type === 'page' else 'post-title') }}">
+                    <h1>{{ g.title if g.type === 'index' else title }}</h1>
+                    {% if g.type === 'index' or g.type === 'page' %}
                     <hr class="small">
-                    <span class="subheading">{{ subtitle }}</span>
+                    <span class="subheading">{{ g.subtitle if g.subtitle === 'index' else subtitle }}</span>
+                    {% endif %}
+
+                    {% if g.type === 'article' %}
+                    <h2 class="subheading">{{ subtitle }}</h2>
+                    <span class="meta">Posted by <a href="#">{{ author }}</a> on August 24, 2014</span>
+                    {% endif %}
                 </div>
             </div>
         </div>

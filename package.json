@@ -39,9 +39,11 @@
   },
   "license": "MIT",
   "dependencies": {
+    "async": "^2.0.0-rc.3",
     "fs-extra": "^0.26.7",
     "marked": "^0.3.5",
     "node-dir": "^0.1.11",
-    "nunjucks": "^2.4.1"
+    "nunjucks": "^2.4.1",
+    "slug": "^0.9.1"
   }
 }
