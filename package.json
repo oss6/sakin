@@ -11,7 +11,9 @@
   "files": [
     "lib"
   ],
-  "main": "lib/index.js",
+  "bin": {
+      "sakin": "./lib/cli.js"
+  },
   "keywords": [
     "generator",
     "static",
@@ -33,17 +35,18 @@
     "gulp-nsp": "^2.1.0",
     "gulp-coveralls": "^0.1.0"
   },
-  "scripts": {
-    "prepublish": "gulp prepublish",
-    "test": "gulp"
-  },
-  "license": "MIT",
   "dependencies": {
     "async": "^2.0.0-rc.3",
+    "commander": "^2.9.0",
     "fs-extra": "^0.26.7",
     "marked": "^0.3.5",
     "node-dir": "^0.1.11",
     "nunjucks": "^2.4.1",
     "slug": "^0.9.1"
-  }
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "MIT"
 }
