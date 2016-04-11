@@ -1,3 +1,11 @@
+{% if g.type == 'index' %}
+    {% set headingType = 'site-heading' %}
+{% elif g.type == 'page' %}
+    {% set headingType = 'page-heading' %}
+{% else %}
+    {% set headingType = 'post-heading' %}
+{% endif %}
+
 <section class="title">
     <h1><a href="{{ root_url }}/">{{ title }}</a></h1>
     {% if subtitle %}
@@ -9,14 +17,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="{{ 'site-heading' if g.type === 'index' else ('page-heading' if g.type === 'page' else 'post-title') }}">
-                    <h1>{{ g.title if g.type === 'index' else title }}</h1>
-                    {% if g.type === 'index' or g.type === 'page' %}
+                <div class="{{ headingType }}">
+                    <h1>{{ g.title if g.type == 'index' else title }}</h1>
+                    {% if g.type == 'index' or g.type == 'page' %}
                     <hr class="small">
-                    <span class="subheading">{{ g.subtitle if g.subtitle === 'index' else subtitle }}</span>
+                    <span class="subheading">{{ g.subtitle if g.subtitle == 'index' else subtitle }}</span>
                     {% endif %}
 
-                    {% if g.type === 'article' %}
+                    {% if g.type == 'article' %}
                     <h2 class="subheading">{{ subtitle }}</h2>
                     <span class="meta">Posted by <a href="#">{{ author }}</a> on August 24, 2014</span>
                     {% endif %}

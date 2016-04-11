@@ -53,4 +53,12 @@ describe('writer', function () {
         });
     });
 
+    describe('saveToOutput', function () {
+
+    });
+
+    describe('createFile', function () {
+
+    });
+
 });

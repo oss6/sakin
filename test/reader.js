@@ -1,5 +1,6 @@
 'use strict';
 var assert = require('assert');
+var writer = require('../lib/writer');
 var Reader = require('../lib/reader');
 
 describe('reader', function () {
@@ -23,8 +24,12 @@ describe('reader', function () {
 
     });
 
-    /*describe('read', function () {
+    describe('read', function () {
 
-    });*/
+        writer.createProject(function (err) {
+            
+        });
+
+    });
 
 });
