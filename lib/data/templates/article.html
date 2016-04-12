@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block container %}
-{{ content }}
+{{ content | safe }}
 
 <div class="social">
     {% if g.twitter_tweet_button %}
