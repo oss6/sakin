@@ -9,8 +9,12 @@
   "asides": ["recent_posts.html", "github.html"],
   "smart_generation": true,
 
+  "style": {
+    "header_background": "#336B59"
+  },
+
   "cli": {
-    "verbose": true  
+    "verbose": true
   },
 
   "email": "",
