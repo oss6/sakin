@@ -2,10 +2,12 @@
 var assert = require('assert');
 var writer = require('../lib/writer');
 var Reader = require('../lib/reader');
+var ActionObservable = require('../lib/action-observable');
 
 describe('reader', function () {
 
     var reader = new Reader();
+    var action = new ActionObservable(true);
 
     describe('getContent', function () {
 
@@ -26,8 +28,7 @@ describe('reader', function () {
 
     describe('read', function () {
 
-        writer.createProject(function (err) {
-            
+        writer.createProject(action, function () {
         });
 
     });

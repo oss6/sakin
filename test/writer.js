@@ -3,6 +3,7 @@ var assert = require('assert');
 var fs = require('fs-extra');
 var path = require('path');
 var writer = require('../lib/writer');
+var ActionObservable = require('../lib/action-observable');
 
 describe('writer', function () {
 
@@ -33,11 +34,13 @@ describe('writer', function () {
         });
     };
 
+    var action = new ActionObservable(true);
+
     describe('createProject', function () {
         it('should create all the necessary files', function (done) {
-            writer.createProject(function () {
+            writer.createProject(action, function () {
                 checkExistence(true, function () {
-                    writer.clearWorkspace(done);
+                    writer.clearWorkspace(action, done);
                 });
             });
         });
@@ -45,8 +48,8 @@ describe('writer', function () {
 
     describe('clearWorkspace', function () {
         it('should clear all the created files', function (done) {
-            writer.createProject(function () {
-                writer.clearWorkspace(function () {
+            writer.createProject(action, function () {
+                writer.clearWorkspace(action, function () {
                     checkExistence(false, done);
                 });
             });
