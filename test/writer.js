@@ -37,14 +37,20 @@ describe('writer', function () {
 
     var action = new ActionObservable(true);
 
+    afterEach(function (done) {
+        writer.clearWorkspace(action, done);
+    });
+
     describe('createProject', function () {
         it('should create all the necessary files', function (done) {
             writer.createProject(action, function () {
-                checkExistence(true, paths, function () {
-                    writer.clearWorkspace(action, done);
-                });
+                checkExistence(true, paths, done);
             });
         });
+
+        /*after(function (done) {
+            writer.clearWorkspace(action, done);
+        });*/
     });
 
     describe('clearWorkspace', function () {
@@ -73,16 +79,20 @@ describe('writer', function () {
                 fs.outputFile(file.path, file.content, cb);
             }, function () {
                 writer.saveToOutput(action, files, function () {
-                    checkExistence(true, ps, function () {
-                        writer.clearWorkspace(action, done);
-                    });
+                    checkExistence(true, ps, done);
                 });
             });
         });
     });
 
     describe('createFile', function () {
-
+        it('should create the example files created at the beginning', function (done) {
+            writer.createProject(action, function () {
+                writer.createFile('This is a test', 'page', function () {
+                    checkExistence(true, [path.join('.', 'contents', 'pages', 'this-is-a-test.md')], done);
+                });
+            });
+        });
     });
 
 });
