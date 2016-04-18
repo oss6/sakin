@@ -58,7 +58,6 @@ describe('reader', function () {
         it('should detect errors when the path does not exist', function (done) {
             reader.read('pages', function (contents, errors) {
                 assert.equal(errors.length, 1);
-                assert.equal(errors[0].errno, -2);
                 done();
             });
         });

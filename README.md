@@ -10,16 +10,22 @@ $ npm install -g sakin
 ## Usage
 
 ```sh
-# This will create a website in the current directory
+# Create a website in the current directory
 $ sakin
-$ ...
+
+# Create an article in contents/articles
 $ sakin --article "Hello everyone"
-$ ...
+
+# Create a page in contents/pages
 $ sakin --page "About me"
-$ ...
+
+# Generate the website
 $ sakin --generate
+
+# Preview the website
 $ sakin --serve 8080
-$ ...
+
+# Publish the website
 $ sakin --publish
 ```
 ## License

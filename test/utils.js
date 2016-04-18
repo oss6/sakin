@@ -10,6 +10,7 @@ describe('utils', function () {
 
         it('correctly streamify the input string', function (done) {
             var lineReader = readline.createInterface({
+                terminal: false,
                 input: utils.streamify('hello\nhow are you?\nI was wondering if\nthis module was useful')
             });
 
