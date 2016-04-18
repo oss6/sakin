@@ -17,7 +17,7 @@ describe('/', function () {
 
     after(function (done) {
         // Remove directory and close connection
-        fs.remove(path.join('.', 'output-test', 'index.html'), function () {
+        fs.remove(path.join('.', 'output-test'), function () {
             server.close();
             done();
         });
