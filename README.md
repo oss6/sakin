@@ -4,13 +4,23 @@
 ## Installation
 
 ```sh
-$ npm install --save sakin
+$ npm install -g sakin
 ```
 
 ## Usage
 
-```js
-var sakin = require('sakin');
+```sh
+# This will create a website in the current directory
+$ sakin
+$ ...
+$ sakin --article "Hello everyone"
+$ ...
+$ sakin --page "About me"
+$ ...
+$ sakin --generate
+$ sakin --serve 8080
+$ ...
+$ sakin --publish
 ```
 ## License
 
