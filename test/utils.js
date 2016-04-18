@@ -1,45 +1,9 @@
 'use strict';
 var mockFs = require('mock-fs');
 var assert = require('assert');
-//var stream = require('stream');
-//var readline = require('readline');
 var utils = require('../lib/utils');
 
 describe('utils', function () {
-
-    describe('streamify', function () {
-
-        it('correctly streamify the input string', function (done) {
-            /*var w = new stream.Writable();
-            w._write = function noop() {};
-
-            readline.createInterface({
-                terminal: false,
-                output: w,
-                input: utils.streamify('hello\nhow are you?\nI was wondering if\nthis module was useful')
-            });*/
-            utils.streamify('hello\nhow are you?\nI was wondering if\nthis module was useful');
-            assert(true);
-
-            /*var expected = [
-                'hello',
-                'how are you?',
-                'I was wondering if',
-                'this module was useful'
-            ];*/
-
-            //var index = 0;
-            /*lineReader.on('line', function (line) {
-                assert.equal(line, expected[index]);
-                index++;
-            });
-
-            lineReader.on('close', done);*/
-
-            done();
-        });
-
-    });
 
     describe('removeWhitespace', function () {
 

@@ -22,23 +22,27 @@ describe('reader', function () {
     describe('getContent', function () {
 
         var tests = [
-            {args: ['---\nkey: value\n---'], expected: [{key: 'value'}, '']}
+            {arg: '---\nkey: value\n---', expected: [{key: 'value'}, '', null]},
+            {arg: 'key: value\n---', expected: [null, null]}
         ];
 
         tests.forEach(function (test, i) {
-            it('correctly gets the content and metadata ' + (i + 1) + '.', function () {
-                var actual = reader.getContent.apply(reader, test.args);
+            it('correctly gets the content and metadata ' + (i + 1) + '.', function (done) {
+                reader.getContent(test.arg, function (actual, error) {
+                    if (error !== null) {
+                        assert.equal(actual, test.expected[0]);
+                        assert.equal(actual, test.expected[1]);
+                    } else {
+                        assert.deepEqual(actual.metadata, test.expected[0]);
+                        assert.deepEqual(actual.content, test.expected[1]);
+                        assert.equal(error, test.expected[2]);
+                    }
 
-                assert.deepEqual(actual.metadata, test.expected[0]);
-                assert.deepEqual(actual.content, test.expected[1]);
+                    done();
+                });
             });
         });
 
-        it('should throw an exception if the content is not properly formatted', function () {
-            assert.throws(function () {
-                reader.getContent('Hello how are you\n---');
-            });
-        });
     });
 
     describe('read', function () {

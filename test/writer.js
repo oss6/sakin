@@ -47,10 +47,6 @@ describe('writer', function () {
                 checkExistence(true, paths, done);
             });
         });
-
-        /*after(function (done) {
-            writer.clearWorkspace(action, done);
-        });*/
     });
 
     describe('clearWorkspace', function () {
