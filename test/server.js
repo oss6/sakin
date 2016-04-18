@@ -3,7 +3,7 @@ var assert = require('assert');
 var http = require('http');
 var fs = require('fs-extra');
 var path = require('path');
-var createServer = require('../lib/serve');
+var createServer = require('../lib/server');
 var server = createServer('output-test');
 
 describe('/', function () {
