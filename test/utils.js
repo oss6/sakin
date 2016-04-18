@@ -1,6 +1,7 @@
 'use strict';
 var mockFs = require('mock-fs');
 var assert = require('assert');
+var stream = require('stream');
 var readline = require('readline');
 var utils = require('../lib/utils');
 
@@ -9,8 +10,12 @@ describe('utils', function () {
     describe('streamify', function () {
 
         it('correctly streamify the input string', function (done) {
+            var w = new stream.Writable();
+            w._write = function noop() {};
+
             var lineReader = readline.createInterface({
                 terminal: false,
+                output: w,
                 input: utils.streamify('hello\nhow are you?\nI was wondering if\nthis module was useful')
             });
 
