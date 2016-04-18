@@ -9,6 +9,16 @@ describe('reader', function () {
     var reader = new Reader();
     var action = new ActionObservable(true);
 
+    afterEach(function (done) {
+        writer.clearWorkspace(action, done);
+    });
+
+    describe('Reader', function () {
+        assert.throws(function () {
+            Reader();
+        });
+    });
+
     describe('getContent', function () {
 
         var tests = [
@@ -24,11 +34,33 @@ describe('reader', function () {
             });
         });
 
+        it('should throw an exception if the content is not properly formatted', function () {
+            assert.throws(function () {
+                reader.getContent('Hello how are you\n---');
+            });
+        });
     });
 
     describe('read', function () {
 
-        writer.createProject(action, function () {
+        it('should read correctly the pages', function (done) {
+            writer.createProject(action, function () {
+                reader.read('pages', function (contents) {
+                    var page = contents[0];
+
+                    assert.deepEqual(page.metadata, {title: 'Example', subtitle: 'This is an example page'});
+                    assert.equal(page.content, '<p>This is an <strong>example</strong>. Hello everyone and welcome to <code>sakin</code>.</p>\n');
+                    done();
+                });
+            });
+        });
+
+        it('should detect errors when the path does not exist', function (done) {
+            reader.read('pages', function (contents, errors) {
+                assert.equal(errors.length, 1);
+                assert.equal(errors[0].errno, -2);
+                done();
+            });
         });
 
     });
