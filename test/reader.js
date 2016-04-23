@@ -1,22 +1,15 @@
 'use strict';
 var assert = require('assert');
 var writer = require('../lib/writer');
-var Reader = require('../lib/reader');
+var reader = require('../lib/reader');
 var ActionObservable = require('../lib/action-observable');
 
 describe('reader', function () {
 
-    var reader = new Reader();
     var action = new ActionObservable(true);
 
     afterEach(function (done) {
         writer.clearWorkspace(action, done);
-    });
-
-    describe('Reader', function () {
-        assert.throws(function () {
-            Reader();
-        });
     });
 
     describe('getContent', function () {
@@ -49,7 +42,7 @@ describe('reader', function () {
 
         it('should read correctly the pages', function (done) {
             writer.createProject(action, function () {
-                reader.read('pages', function (contents) {
+                reader.read('pages', ['example.md'], function (contents) {
                     var page = contents[0];
 
                     assert.deepEqual(page.metadata, {title: 'Example', subtitle: 'This is an example page'});
@@ -60,7 +53,7 @@ describe('reader', function () {
         });
 
         it('should detect errors when the path does not exist', function (done) {
-            reader.read('pages', function (contents, errors) {
+            reader.read('pages', ['example.md'], function (contents, errors) {
                 assert.equal(errors.length, 1);
                 done();
             });
