@@ -8,10 +8,6 @@ describe('reader', function () {
 
     var action = new ActionObservable(true);
 
-    afterEach(function (done) {
-        writer.clearWorkspace(action, done);
-    });
-
     describe('getContent', function () {
 
         var tests = [
@@ -39,6 +35,10 @@ describe('reader', function () {
     });
 
     describe('read', function () {
+
+        afterEach(function (done) {
+            writer.clearWorkspace(action, done);
+        });
 
         it('should read correctly the pages', function (done) {
             writer.createProject(action, function () {

@@ -18,6 +18,11 @@ describe('writer', function () {
     var checkExistence = function (checkExists, ps, cb) {
         var toGo = ps.length;
 
+        if (toGo === 0) {
+            cb();
+            return;
+        }
+
         ps.forEach(function (p) {
             fs.stat(path.join('.', p), function (err) {
                 if (err) {
