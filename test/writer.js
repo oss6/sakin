@@ -42,8 +42,10 @@ describe('writer', function () {
 
     var action = new ActionObservable(true);
 
-    afterEach(function (done) {
-        writer.clearWorkspace(action, done);
+    after(function (done) {
+        writer.clearWorkspace(action, function () {
+            done();
+        });
     });
 
     describe('createProject', function () {

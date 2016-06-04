@@ -36,8 +36,10 @@ describe('reader', function () {
 
     describe('read', function () {
 
-        afterEach(function (done) {
-            writer.clearWorkspace(action, done);
+        after(function (done) {
+            writer.clearWorkspace(action, function () {
+                done();
+            });
         });
 
         it('should read correctly the pages', function (done) {
@@ -45,7 +47,7 @@ describe('reader', function () {
                 reader.read('pages', ['example.md'], function (contents) {
                     var page = contents[0];
 
-                    assert.deepEqual(page.metadata, {title: 'Example', subtitle: 'This is an example page'});
+                    assert.deepEqual(page.metadata, {title: 'Example', subtitle: 'This is an example page', path: 'contents/pages/example.md'});
                     assert.equal(page.content, '<p>This is an <strong>example</strong>. Hello everyone and welcome to <code>sakin</code>.</p>\n');
                     done();
                 });
@@ -53,9 +55,11 @@ describe('reader', function () {
         });
 
         it('should detect errors when the path does not exist', function (done) {
-            reader.read('pages', ['example.md'], function (contents, errors) {
-                assert.equal(errors.length, 1);
-                done();
+            writer.clearWorkspace(action, function () {
+                reader.read('pages', ['example.md'], function (contents, errors) {
+                    assert.equal(errors.length, 1);
+                    done();
+                });
             });
         });
 
