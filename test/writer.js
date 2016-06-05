@@ -42,24 +42,15 @@ describe('writer', function () {
 
     var action = new ActionObservable(true);
 
-    after(function (done) {
+    /*after(function (done) {
         writer.clearWorkspace(action, function () {
             done();
         });
-    });
+    });*/
 
     it('should create all the necessary files', function (done) {
         writer.createProject(action, function () {
             checkExistence(true, paths, done);
-        });
-    });
-
-    it('should clear all the created files', function (done) {
-        /*writer.createProject(action, function () {
-
-        });*/
-        writer.clearWorkspace(action, function () {
-            checkExistence(false, paths, done);
         });
     });
 
@@ -91,20 +82,10 @@ describe('writer', function () {
         });
     });
 
-    /*describe('createProject', function () {
-
+    it('should clear all the created files', function (done) {
+        writer.clearWorkspace(action, function () {
+            checkExistence(false, paths, done);
+        });
     });
-
-    describe('clearWorkspace', function () {
-
-    });
-
-    describe('saveToOutput', function () {
-
-    });
-
-    describe('createFile', function () {
-
-    });*/
 
 });
