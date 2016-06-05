@@ -55,10 +55,11 @@ describe('writer', function () {
     });
 
     it('should clear all the created files', function (done) {
-        writer.createProject(action, function () {
-            writer.clearWorkspace(action, function () {
-                checkExistence(false, paths, done);
-            });
+        /*writer.createProject(action, function () {
+
+        });*/
+        writer.clearWorkspace(action, function () {
+            checkExistence(false, paths, done);
         });
     });
 
