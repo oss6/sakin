@@ -48,54 +48,62 @@ describe('writer', function () {
         });
     });
 
-    describe('createProject', function () {
-        it('should create all the necessary files', function (done) {
-            writer.createProject(action, function () {
-                checkExistence(true, paths, done);
+    it('should create all the necessary files', function (done) {
+        writer.createProject(action, function () {
+            checkExistence(true, paths, done);
+        });
+    });
+
+    it('should clear all the created files', function (done) {
+        writer.createProject(action, function () {
+            writer.clearWorkspace(action, function () {
+                checkExistence(false, paths, done);
             });
         });
+    });
+
+    it('should create the output files as defined in the parameter', function (done) {
+        var files = [
+            {path: path.join('output', 'about.html'), content: '<h1>Hello</h1>'},
+            {path: path.join('output', 'contacts.html'), content: '<h1>How are you?</h1>'}
+        ];
+
+        var ps = files.map(function (file) {
+            return file.path;
+        });
+
+        // Create files
+        a.each(files, function (file, cb) {
+            fs.outputFile(file.path, file.content, cb);
+        }, function () {
+            writer.saveToOutput(action, files, function () {
+                checkExistence(true, ps, done);
+            });
+        });
+    });
+
+    it('should create the example files created at the beginning', function (done) {
+        writer.createProject(action, function () {
+            writer.createFile('This is a test', 'page', function () {
+                checkExistence(true, [path.join('.', 'contents', 'pages', 'this-is-a-test.md')], done);
+            });
+        });
+    });
+
+    /*describe('createProject', function () {
+
     });
 
     describe('clearWorkspace', function () {
-        it('should clear all the created files', function (done) {
-            writer.createProject(action, function () {
-                writer.clearWorkspace(action, function () {
-                    checkExistence(false, paths, done);
-                });
-            });
-        });
+
     });
 
     describe('saveToOutput', function () {
-        it('should create the output files as defined in the parameter', function (done) {
-            var files = [
-                {path: path.join('output', 'about.html'), content: '<h1>Hello</h1>'},
-                {path: path.join('output', 'contacts.html'), content: '<h1>How are you?</h1>'}
-            ];
 
-            var ps = files.map(function (file) {
-                return file.path;
-            });
-
-            // Create files
-            a.each(files, function (file, cb) {
-                fs.outputFile(file.path, file.content, cb);
-            }, function () {
-                writer.saveToOutput(action, files, function () {
-                    checkExistence(true, ps, done);
-                });
-            });
-        });
     });
 
     describe('createFile', function () {
-        it('should create the example files created at the beginning', function (done) {
-            writer.createProject(action, function () {
-                writer.createFile('This is a test', 'page', function () {
-                    checkExistence(true, [path.join('.', 'contents', 'pages', 'this-is-a-test.md')], done);
-                });
-            });
-        });
-    });
+
+    });*/
 
 });
