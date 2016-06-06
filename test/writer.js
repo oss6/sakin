@@ -9,6 +9,7 @@ var ActionObservable = require('../lib/action-observable');
 describe('writer', function () {
 
     var paths = [
+        '.sakin',
         'settings.json',
         'static',
         'templates',
@@ -16,21 +17,12 @@ describe('writer', function () {
     ];
 
     var checkExistence = function (checkExists, ps, cb) {
-        /*var toGo = ps.length;
-
-        if (toGo === 0) {
-            cb();
-            return;
-        }*/
-
         a.each(ps, function (p, next) {
-            fs.stat(path.join('.', p), function (err) {
-                if (err) {
-                    if (err.code === 'ENOENT') {
-                        assert(!checkExists, checkExists ? 'The file should exist' : '');
-                    }
-                } else {
+            fs.stat(p, function (err) {
+                if (err === null) {
                     assert(checkExists, !checkExists ? 'The file should not exist' : '');
+                } else if (err.code === 'ENOENT') {
+                    assert(!checkExists, checkExists ? 'The file should exist' : '');
                 }
 
                 next();
@@ -38,22 +30,6 @@ describe('writer', function () {
         }, function () {
             cb();
         });
-
-        /*ps.forEach(function (p) {
-            fs.stat(path.join('.', p), function (err) {
-                if (err) {
-                    if (err.code === 'ENOENT') {
-                        assert(!checkExists, checkExists ? 'The file should exist' : '');
-                    }
-                } else {
-                    assert(checkExists, !checkExists ? 'The file should not exist' : '');
-                }
-
-                if (--toGo === 0 && cb !== undefined) {
-                    cb();
-                }
-            });
-        });*/
     };
 
     var action = new ActionObservable(true);
