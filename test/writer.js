@@ -35,19 +35,23 @@ describe('writer', function () {
 
     var action = new ActionObservable(true);
 
-    after(function (done) {
+    /*after(function (done) {
         writer.clearWorkspace(action, function () {
             done();
         });
-    });
+    });*/
 
     it('should get the correct metadata', function () {
         var t1 = writer.getMetadata('page', 'This is a test!');
         assert.equal(t1, '---\ntitle: This is a test!\nsubtitle: An awesome page\n---\n');
 
         var t2 = writer.getMetadata('article', 'Another test!');
+        var actual = t2.replace(/date: (.*)/gi, function (x) {
+            return x.substring(0, x.length - 8);
+        });
         var date = utils.getDate();
-        assert.equal(t2, '---\ntitle: Another test!\nsubtitle: An awesome article\nauthor: Change me\ndate: ' + date + '\n---\n');
+
+        assert.equal(actual, '---\ntitle: Another test!\nsubtitle: An awesome article\nauthor: Change me\ndate: ' + date.substring(0, date.length - 8) + '\n---\n');
     });
 
     it('should create all the necessary files', function (done) {

@@ -108,29 +108,9 @@ describe('utils', function () {
 
     describe('getDate', function () {
 
-        var leftpad = function (str, len, ch) {
-            str = String(str);
-            var i = -1;
-
-            if (!ch && ch !== 0) {
-                ch = ' ';
-            }
-            len = len - str.length;
-
-            while (++i < len) {
-                str = ch + str;
-            }
-
-            return str;
-        };
-
         it('correctly gets the current date in ISO format.', function () {
             var datetime = new Date();
-            var year = datetime.getFullYear();
-            var month = leftpad(datetime.getMonth() + 1, 2, 0);
-            var day = leftpad(datetime.getDate(), 2, 0);
-
-            assert.deepEqual(utils.getDate(), year + '-' + month + '-' + day);
+            assert.equal(utils.getDate().split('T')[0], datetime.toISOString().split('T')[0]);
         });
 
     });
