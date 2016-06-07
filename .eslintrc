@@ -73,12 +73,6 @@
     "no-eval": 2,
     "no-with": 2,
     "space-infix-ops": 2,
-    "dot-notation": [
-      2,
-      {
-        "allowKeywords": true
-      }
-    ],
     "eqeqeq": [
       2,
       "allow-null"

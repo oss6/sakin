@@ -1,34 +1,48 @@
 {
-  "url": "http://example.com/",
-  "root_url": "/",
-  "author": "Change me",
-  "title": "My awesome blog",
-  "subtitle": "Powered by sakin",
-  "description": "An amazing blog",
-  "paginate": 10,
-  "asides": ["recent_posts.html", "github.html"],
-  "smart_generation": true,
+    "url": "http://example.com",
+    "root_url": "/",
+    "author": "Change me",
+    "title": "My awesome blog",
+    "subtitle": "Powered by sakin",
+    "description": "An amazing blog",
+    "paginate": 10,
+    "smart_generation": true,
 
-  "style": {
-    "header_background": "#336B59"
-  },
+    "style": {
+        "header_background": "#336B59"
+    },
 
-  "cli": {
-    "verbose": true
-  },
+    "cli": {
+        "verbose": false
+    },
 
-  "email": "",
-  "gist_embedding": true,
+    "disqus": {
+        "enabled": false,
+        "short_name": "",
+        "comment_count": false
+    },
 
-  "github_user": "",
-  "github_repo_count": 5,
-  "twitter_tweet_button": true,
-  "facebook_share_button": true,
-  "google_analytics_tracking_id": "",
+    "social": {
+        "twitter": true,
+        "facebook": true
+    },
 
-  "disqus_short_name": "",
-  "disqus_show_comment_count": false,
+    "tracking": {
+        "enabled": false,
+        "google_id": ""
+    },
 
-  "rsync_ssh_user": "",
-  "rsync_document_root": ""
+    "publish": {
+        "medium": "github",
+
+        "github": {
+            "repo": ""
+        },
+
+        "rsync": {
+            "user": "",
+            "server": "",
+            "location": ""
+        }
+    }
 }

@@ -4,7 +4,7 @@
 {{ content | safe }}
 
 <div class="social">
-    {% if g.twitter_tweet_button %}
+    {% if g.social.twitter %}
     <a class="twitter-share-button"
       href="https://twitter.com/intent/tweet?original_referer={{ g.url | urlencode }}{{ url | urlencode }}&tw_p=tweetbutton&url={{ g.url | urlencode }}{{ url | urlencode }}&text={{ title | urlencode }}"
             target="_blank">
@@ -13,7 +13,7 @@
     </a>
     {% endif %}
 
-    {% if site.facebook_share_button %}
+    {% if g.social.facebook %}
     <span class="fb-share-button" data-href="{{ g.url | urlencode }}{{ url | urlencode }}" data-layout="button"></span>
     {% endif %}
 </div>

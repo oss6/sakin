@@ -4,6 +4,7 @@ var fs = require('fs-extra');
 var path = require('path');
 var a = require('async');
 var writer = require('../lib/writer');
+var utils = require('../lib/utils');
 var ActionObservable = require('../lib/action-observable');
 
 describe('writer', function () {
@@ -34,11 +35,20 @@ describe('writer', function () {
 
     var action = new ActionObservable(true);
 
-    /*after(function (done) {
+    after(function (done) {
         writer.clearWorkspace(action, function () {
             done();
         });
-    });*/
+    });
+
+    it('should get the correct metadata', function () {
+        var t1 = writer.getMetadata('page', 'This is a test!');
+        assert.equal(t1, '---\ntitle: This is a test!\nsubtitle: An awesome page\n---\n');
+
+        var t2 = writer.getMetadata('article', 'Another test!');
+        var date = utils.getDate();
+        assert.equal(t2, '---\ntitle: Another test!\nsubtitle: An awesome article\nauthor: Change me\ndate: ' + date + '\n---\n');
+    });
 
     it('should create all the necessary files', function (done) {
         writer.createProject(action, function () {
