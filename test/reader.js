@@ -7,6 +7,7 @@ var ActionObservable = require('../lib/action-observable');
 describe('reader', function () {
 
     var action = new ActionObservable(true);
+    var opts = { theme: 'default' };
 
     describe('getContent', function () {
 
@@ -43,7 +44,7 @@ describe('reader', function () {
         });
 
         it('should read correctly the pages', function (done) {
-            writer.createProject(action, function () {
+            writer.createProject(action, opts, function () {
                 reader.read('pages', ['example.md'], function (contents) {
                     var page = contents[0];
 

@@ -115,4 +115,62 @@ describe('utils', function () {
 
     });
 
+    describe('extractISODate', function () {
+
+        var tests = [
+            {args: ['2016-05-01'], expected: {year: '2016', month: '05', day: '01'}},
+            {args: ['1999-12-03'], expected: {year: '1999', month: '12', day: '03'}},
+            {args: ['2011-10-05T14:48:00.000Z'], expected: {year: '2011', month: '10', day: '05', hours: '14', minutes: '48', seconds: '00'}},
+            {args: ['2011-10-05T14:48:00'], expected: {year: '2011', month: '10', day: '05', hours: '14', minutes: '48', seconds: '00'}}
+        ];
+
+        tests.forEach(function (test) {
+            it('correctly extracts the parts of an ISO formatted date.', function () {
+                assert.deepEqual(utils.extractISODate.apply(null, test.args), test.expected);
+            });
+        });
+
+        // Date not formatted properly tests
+        var exceptionTests = [
+            {args: ['']},
+            {args: ['2016']},
+            {args: ['2016-04']},
+            {args: ['2016-04-12T']},
+            {args: ['2016-04-12T13']},
+            {args: ['2016-04-12T13:23']},
+            {args: ['2016-04-12T13:23:05T2054']}
+        ];
+
+        exceptionTests.forEach(function (test) {
+            it('correctly detects if a date is not properly formatted.', function () {
+                assert.throws(function () {
+                    utils.extractISODate.apply(null, test.args);
+                });
+            });
+        });
+
+    });
+
+    describe('compareDates', function () {
+
+        var tests = [
+            {args: ['2016-06-08', '2016-06-08'], expected: 0},
+            {args: ['2016-06-08', '2016-06-09'], expected: 1},
+            {args: ['2016-06-08', '2016-06-09'], expected: 1},
+            {args: ['2016-03-08', '2016-06-08'], expected: 1},
+            {args: ['2015-03-23', '2016-06-08'], expected: 1},
+            {args: ['2016-06-08', '2016-01-03'], expected: -1},
+            {args: ['2017-12-23', '2002-01-02'], expected: -1},
+            {args: ['2016-06-08T13:00:00', '2016-06-08T15:03:34'], expected: 1},
+            {args: ['2016-06-08T22:12:45', '2016-06-08T15:03:34'], expected: -1}
+        ];
+
+        tests.forEach(function (test) {
+            it('correctly compares two ISO formatted dates.', function () {
+                assert.equal(Math.sign(utils.compareDates.apply(null, test.args)), test.expected);
+            });
+        });
+
+    });
+
 });

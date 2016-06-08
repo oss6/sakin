@@ -17,6 +17,8 @@ describe('writer', function () {
         'contents'
     ];
 
+    var opts = { theme: 'default' };
+
     var checkExistence = function (checkExists, ps, cb) {
         a.each(ps, function (p, next) {
             fs.stat(p, function (err) {
@@ -55,7 +57,7 @@ describe('writer', function () {
     });
 
     it('should create all the necessary files', function (done) {
-        writer.createProject(action, function () {
+        writer.createProject(action, opts, function () {
             checkExistence(true, paths, done);
         });
     });
@@ -81,7 +83,7 @@ describe('writer', function () {
     });
 
     it('should create the example files created at the beginning', function (done) {
-        writer.createProject(action, function () {
+        writer.createProject(action, opts, function () {
             writer.createFile('This is a test', 'page', function () {
                 checkExistence(true, [path.join('.', 'contents', 'pages', 'this-is-a-test.md')], done);
             });
