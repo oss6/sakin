@@ -36,7 +36,8 @@
         "medium": "github",
 
         "github": {
-            "repo": ""
+            "repo": "",
+            "project": false
         },
 
         "rsync": {
