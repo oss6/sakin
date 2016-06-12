@@ -4,7 +4,7 @@
     {% include "includes/head.html" %}
 </head>
 <body>
-    {% if facebook_share_button %}
+    {% if g.social.facebook %}
     <div id="fb-root"></div>
     <script>
         (function(d, s, id) {
@@ -25,7 +25,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 {% block container %}{% endblock %}
 
-                {% if g.disqus_short_name %}
+                {% if g.disqus.enabled %}
                 <div id="disqus_thread"></div>
                 {% endif %}
             </div>

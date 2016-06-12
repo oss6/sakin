@@ -2,10 +2,11 @@
     "url": "http://example.com",
     "root_url": "/",
     "author": "Change me",
+    "author_page": "http://change-me.com",
     "title": "My awesome blog",
     "subtitle": "Powered by sakin",
     "description": "An amazing blog",
-    "paginate": 10,
+    "page_size": 10,
     "smart_generation": true,
 
     "style": {

@@ -3,19 +3,30 @@
 {% block container %}
 {{ content | safe }}
 
-<div class="social">
-    {% if g.social.twitter %}
-    <a class="twitter-share-button"
-      href="https://twitter.com/intent/tweet?original_referer={{ g.url | urlencode }}{{ url | urlencode }}&tw_p=tweetbutton&url={{ g.url | urlencode }}{{ url | urlencode }}&text={{ title | urlencode }}"
-            target="_blank">
-        <i></i>
-        <span class="label">Tweet</span>
-    </a>
-    {% endif %}
+<div class="article-footer">
+    <div class="categories">
+        {% if categories %}
+            <span>This article was posted in</span>
+        {% endif %}
+        {% for category in categories %}
+            <a href="{{ g.root_url }}categories/{{ category }}">{{ category }}</a>{{ "," if not loop.last else "" }}
+        {% endfor %}
+    </div>
 
-    {% if g.social.facebook %}
-    <span class="fb-share-button" data-href="{{ g.url | urlencode }}{{ url | urlencode }}" data-layout="button"></span>
-    {% endif %}
+    <div class="social">
+        {% if g.social.twitter %}
+        <a class="twitter-share-button"
+          href="https://twitter.com/intent/tweet?original_referer={{ g.url | urlencode }}{{ url | urlencode }}&tw_p=tweetbutton&url={{ g.url | urlencode }}{{ url | urlencode }}&text={{ title | urlencode }}"
+                target="_blank">
+            <i></i>
+            <span class="label">Tweet</span>
+        </a>
+        {% endif %}
+
+        {% if g.social.facebook %}
+        <span class="fb-share-button" data-href="{{ g.url | urlencode }}{{ url | urlencode }}" data-layout="button"></span>
+        {% endif %}
+    </div>
 </div>
 
 {% endblock %}

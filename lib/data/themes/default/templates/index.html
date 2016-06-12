@@ -2,15 +2,17 @@
 
 {% block container %}
 
+<div id="articles">
 {% for article in articles %}
 <div class="post-preview">
     <a href="{{ article.url }}">
         <h2 class="post-title">{{ article.title }}</h2>
         <h3 class="post-subtitle">{{ article.subtitle }}</h3>
     </a>
-    <p class="post-meta">Posted by <a href="#">{{ article.author }}</a> {{ article.date }} on September 24, 2014</p>
+    <p class="post-meta">Posted by <a href="{{ article.author_page if article.author_page else g.author_page }}">{{ article.author }}</a> on {{ article.date | human_date }}</p>
+    <hr>
 </div>
-<hr>
 {% endfor %}
+</div>
 
 {% endblock %}

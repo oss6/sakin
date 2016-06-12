@@ -1,9 +1,15 @@
 {% if g.type == 'index' %}
     {% set headingType = 'site-heading' %}
+    {% set headingTitle = g.title %}
 {% elif g.type == 'page' %}
     {% set headingType = 'page-heading' %}
+    {% set headingTitle = title %}
+{% elif g.type == 'category' %}
+    {% set headingType = 'post-heading' %}
+    {% set headingTitle = 'Category: ' + category %}
 {% else %}
     {% set headingType = 'post-heading' %}
+    {% set headingTitle = title %}
 {% endif %}
 
 <header class="intro-header" style="background: {{ g.style.header_background }}">
@@ -11,7 +17,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="{{ headingType }}">
-                    <h1>{{ g.title if g.type == 'index' else title }}</h1> <!-- category stuff -->
+                    <h1>{{ headingTitle }}</h1>
 
                     {% if g.type == 'index' or g.type == 'page' %}
                     <hr class="small">
@@ -20,7 +26,7 @@
 
                     {% if g.type == 'article' %}
                     <h2 class="subheading">{{ subtitle }}</h2>
-                    <span class="meta">Posted by <a href="#">{{ author }}</a> on {{ date }} August 24, 2014</span>
+                    <span class="meta">Posted by <a href="{{ author_page if author_page else g.author_page }}">{{ author }}</a> on {{ date | human_date }}</span>
                     {% endif %}
                 </div>
             </div>
