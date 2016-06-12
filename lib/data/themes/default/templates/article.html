@@ -27,6 +27,12 @@
         <span class="fb-share-button" data-href="{{ g.url | urlencode }}{{ url | urlencode }}" data-layout="button"></span>
         {% endif %}
     </div>
+
+    <hr>
+
+    {% if g.disqus.enabled %}
+    <div id="disqus_thread"></div>
+    {% endif %}
 </div>
 
 {% endblock %}

@@ -13,7 +13,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 {% endif %}
 
-{% if g.disqus.enabled %}
+{% if g.disqus.enabled and g.type == 'article' %}
 {% if g.disqus.short_name %}
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
