@@ -43,6 +43,23 @@ describe('utils', function () {
 
     });
 
+    describe('difference', function () {
+
+        var tests = [
+            {args: [[0, 1, 2], [0, 3]], expected: [1, 2]},
+            {args: [[], [0, 3, 7, 45]], expected: []},
+            {args: [[0, 1, 2], [0, 1, 2]], expected: []},
+            {args: [[3, 5, 8, 14], [5, 14]], expected: [3, 8]}
+        ];
+
+        tests.forEach(test => {
+            it('correctly computes the difference of two arrays', () => {
+                assert.deepEqual(utils.difference.apply(null, test.args), test.expected);
+            });
+        });
+
+    });
+
     describe('extend', function () {
 
         var tests = [
@@ -91,6 +108,23 @@ describe('utils', function () {
                 assert.throws(function () {
                     utils.extractISODate.apply(null, test.args);
                 });
+            });
+        });
+
+    });
+
+    describe('flatten', function () {
+
+        var tests = [
+            {args: [[[1, 2], [3], [4, 5, 6]]], expected: [1, 2, 3, 4, 5, 6]},
+            {args: [[[], [], [4, 5, 6]]], expected: [4, 5, 6]},
+            {args: [[[1, 2, 3], [], [4, 5, 6]]], expected: [1, 2, 3, 4, 5, 6]},
+            {args: [[]], expected: []}
+        ];
+
+        tests.forEach(test => {
+            it('correctly flattens the given array', () => {
+                assert.deepEqual(utils.flatten.apply(null, test.args), test.expected);
             });
         });
 
