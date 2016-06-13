@@ -13,10 +13,6 @@
         "header_background": "#336B59"
     },
 
-    "cli": {
-        "verbose": false
-    },
-
     "disqus": {
         "enabled": false,
         "short_name": "",
