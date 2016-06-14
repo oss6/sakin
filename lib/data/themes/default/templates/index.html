@@ -2,6 +2,9 @@
 
 {% block container %}
 
+{% if g.custom_index %}
+{{ content | safe }}
+{% else %}
 <div id="articles">
 {% for article in articles %}
 <div class="post-preview">
@@ -14,5 +17,6 @@
 </div>
 {% endfor %}
 </div>
+{% endif %}
 
 {% endblock %}

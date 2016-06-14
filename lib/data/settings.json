@@ -8,6 +8,7 @@
     "description": "An amazing blog",
     "page_size": 10,
     "smart_generation": true,
+    "custom_index": false,
 
     "style": {
         "header_background": "#336B59"
