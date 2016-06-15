@@ -2,30 +2,36 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <ul class="list-inline text-center">
+                {% if g.social.twitter_page %}
                 <li>
-                    <a href="#">
+                    <a href="{{ g.social.twitter_page }}">
                         <span class="fa-stack fa-lg">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
                 </li>
+                {% endif %}
+                {% if g.social.facebook_page %}
                 <li>
-                    <a href="#">
+                    <a href="{{ g.social.facebook_page }}">
                         <span class="fa-stack fa-lg">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
                 </li>
+                {% endif %}
+                {% if g.social.github_page %}
                 <li>
-                    <a href="#">
+                    <a href="{{ g.social.github_page }}">
                         <span class="fa-stack fa-lg">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-github fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
                 </li>
+                {% endif %}
             </ul>
             <p class="copyright text-muted">Copyright &copy; {{ g.author }} 2016 - Powered by <a href="http://oss6.github.io/sakin">sakin</a></p>
         </div>

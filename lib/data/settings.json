@@ -14,6 +14,11 @@
         "header_background": "#336B59"
     },
 
+    "menu": {
+        "Blog": "index",
+        "Example": "contents/pages/example.md"
+    },
+
     "disqus": {
         "enabled": false,
         "short_name": "",
@@ -22,7 +27,10 @@
 
     "social": {
         "twitter": true,
-        "facebook": true
+        "facebook": true,
+        "twitter_page": "#",
+        "facebook_page": "#",
+        "github_page": "#"
     },
 
     "tracking": {
