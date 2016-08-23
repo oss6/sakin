@@ -48,7 +48,7 @@ describe('reader', function () {
                 reader.read('pages', ['example.md'], function (contents) {
                     var page = contents[0];
 
-                    assert.deepEqual(page.metadata, {title: 'Example', subtitle: 'This is an example page', path: 'contents/pages/example.md'});
+                    assert.deepEqual(page.metadata, {description: 'Enter description', title: 'Example', subtitle: 'This is an example page', path: 'contents/pages/example.md'});
                     assert.equal(page.content, '<p>This is an <strong>example</strong>. Hello everyone and welcome to <code>sakin</code>.</p>\n');
                     done();
                 });
