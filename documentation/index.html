@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sakin is a simple yet versatile and efficient static site generator">
+<meta name="author" content="Ossama Edbali">
+
+<title>Sakin</title>
+
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/clean-blog.css" rel="stylesheet">
+<link href="/css/paginator.css" rel="stylesheet">
+
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+    
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Sakin</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+                <li>
+                    <a href="/documentation">Documentation</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    
+    
+    
+
+
+<header class="intro-header" style="background: #336B59">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="page-heading">
+                    <h1>Documentation</h1>
+
+                    
+                    <hr class="small">
+                    <span class="subheading">Everything you need to know</span>
+                    
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+<h1>Table of contents</h1>
+<ul>
+<li><a href="#create-a-website">Create a website</a></li>
+<li><a href="#settings-file">Settings file</a></li>
+<li><a href="#create-article">Create an article</a></li>
+<li><a href="#create-page">Create a page</a></li>
+<li><a href="#content-generation">Content generation</a></li>
+<li><a href="#previewing">Previewing</a></li>
+<li><a href="#publishing">Publishing</a></li>
+<li><a href="#themes">Themes</a></li>
+</ul>
+<h1>Create a website<a name="create-a-website"></a></h1>
+<p>To install sakin use <code>npm install -g sakin</code>.</p>
+<p>Then <code>sakin --init</code> will create a new working directory (website). This contains:</p>
+<ul>
+<li><code>contents</code>
+<ul>
+<li><code>articles</code> contains all the website posts. By default the homepage displays these articles.</li>
+<li><code>pages</code> contains all pages.</li>
+</ul></li>
+<li><code>output</code></li>
+<li><code>static</code> contains the website's assets</li>
+<li><code>templates</code>
+<ul>
+<li><code>includes</code>
+<ul>
+<li><code>after_footer.html</code></li>
+<li><code>footer.html</code></li>
+<li><code>head.html</code></li>
+<li><code>header.html</code></li>
+<li><code>navigation.html</code></li>
+</ul></li>
+<li><code>article.html</code></li>
+<li><code>base.html</code></li>
+<li><code>category.html</code></li>
+<li><code>index.html</code></li>
+<li><code>page.html</code></li>
+</ul></li>
+<li><code>.sakin</code> defines a sakin website and contains metadata</li>
+<li><code>settings.json</code></li>
+</ul>
+<h1>Settings file<a name="settings-file"></a></h1>
+<p><code>settings.json</code> contains all the global settings for the website. Here is the default settings file:</p>
+<pre><code class="language-json">{
+    &quot;url&quot;: &quot;http://example.com&quot;,
+    &quot;root_url&quot;: &quot;/&quot;,
+    &quot;author&quot;: &quot;Change me&quot;,
+    &quot;author_page&quot;: &quot;http://change-me.com&quot;,
+    &quot;title&quot;: &quot;My awesome blog&quot;,
+    &quot;subtitle&quot;: &quot;Powered by sakin&quot;,
+    &quot;description&quot;: &quot;An amazing blog&quot;,
+    &quot;page_size&quot;: 10,
+    &quot;smart_generation&quot;: true,
+    &quot;custom_index&quot;: false,
+
+    &quot;style&quot;: {
+        &quot;header_background&quot;: &quot;#336B59&quot;
+    },
+
+    &quot;menu&quot;: {
+        &quot;Blog&quot;: &quot;index&quot;,
+        &quot;Example&quot;: &quot;contents/pages/example.md&quot;
+    },
+
+    &quot;disqus&quot;: {
+        &quot;enabled&quot;: false,
+        &quot;short_name&quot;: &quot;&quot;,
+        &quot;comment_count&quot;: false
+    },
+
+    &quot;social&quot;: {
+        &quot;twitter&quot;: true,
+        &quot;facebook&quot;: true,
+        &quot;twitter_page&quot;: &quot;#&quot;,
+        &quot;facebook_page&quot;: &quot;#&quot;,
+        &quot;github_page&quot;: &quot;#&quot;
+    },
+
+    &quot;tracking&quot;: {
+        &quot;enabled&quot;: false,
+        &quot;google_id&quot;: &quot;&quot;
+    },
+
+    &quot;publish&quot;: {
+        &quot;medium&quot;: &quot;github&quot;,
+
+        &quot;github&quot;: {
+            &quot;repo&quot;: &quot;&quot;,
+            &quot;project&quot;: false
+        },
+
+        &quot;rsync&quot;: {
+            &quot;user&quot;: &quot;&quot;,
+            &quot;server&quot;: &quot;&quot;,
+            &quot;location&quot;: &quot;&quot;
+        }
+    }
+}
+</code></pre>
+<h2>Description</h2>
+<ul>
+<li><code>author_page</code>: the author website</li>
+<li><code>page_size</code>: pagination size for articles/posts displayed in the homepage</li>
+<li><code>smart_generation</code>: enables/disables <a href="#smart-generation">smart generation</a></li>
+<li><code>custom_index</code>: if enabled uses a custom homepage created using the command: <code>sakin --index</code></li>
+<li><code>menu</code>: is a mapping of menu items to locations</li>
+<li><code>disqus</code>: defines disqus comment system settings</li>
+<li><code>social</code>: the boolean settings indicate the buttons</li>
+</ul>
+<h1>Create an article<a name="create-article"></a></h1>
+<p><code>sakin --article &quot;Article name here&quot;</code> creates an article with <em>Article name here</em> as a title. The created article is saved
+in the <code>articles</code> directory with the name <code>article-name-here.md</code> (i.e. slugified).</p>
+<p>The file will be structured as follows:</p>
+<pre><code class="language-markdown">---
+title: Article name here
+subtitle: An awesome article
+author: Change me
+author_page: http://change-me.com
+categories: examples, tests
+date: 2016-04-10
+description: Enter description
+---
+
+</code></pre>
+<p>After the metadata you can write the content using Markdown.</p>
+<p>If <code>custom_index</code> is set to false then the article will appear in the homepage.</p>
+<h1>Create a page<a name="create-page"></a></h1>
+<p><code>sakin --page &quot;Page name here&quot;</code> create a page with <em>Page name here</em> as a title. The created page is saved
+in the <code>pages</code> directory with the name <code>page-name-here.md</code>.</p>
+<p>The file will be structured as follows:</p>
+<pre><code class="language-markdown">---
+title: Page name here
+subtitle: An awesome page
+description: Enter description
+---
+
+</code></pre>
+<p>N.B. If the page is named <code>index</code> and <code>custom_index</code> is set to true then this will be the homepage.</p>
+<h1>Content generation<a name="content-generation"></a></h1>
+<p>Content generation is the process of taking the markdown content, injecting it in the templates and creating additional pages (such as categories).</p>
+<p>To generate use: <code>sakin --generate</code>. If the global setting <code>smart_generation</code> (SG) is set to true then only the modified content items are generated.
+You can override this behaviour by using the appropriate option: <code>sakin --generate --off-smart</code> (in this case turns SG off).</p>
+<h1>Previewing<a name="previewing"></a></h1>
+<p>To preview your website use: <code>sakin --serve</code>. This will create a local server using the port 8000.
+To use another port just supply it in the command as in: <code>sakin --serve 8080</code>.</p>
+<h1>Publishing<a name="publishing"></a></h1>
+<p>Once you have finished writing you can manually upload the website from the output directory (FTP etc...).
+If you are using GitHub Pages or rsync use the appropriate setting in <code>settings.json</code>.</p>
+<h1>Themes<a name="themes"></a></h1>
+<p>Currently sakin support only the default theme.</p>
+<h2>Custom themes (coming soon)</h2>
+
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <ul class="list-inline text-center">
+                
+                <li>
+                    <a href="#">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="https://github.com/oss6/sakin">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Ossama Edbali 2016 - Powered by <a href="http://oss6.github.io/sakin">sakin</a></p>
+        </div>
+    </div>
+</div>
+
+    </footer>
+
+    
+
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/clean-blog.min.js"></script>
+
+<!-- Globals -->
+<script>
+    var pageSize = Number('10');
+    
+</script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>
