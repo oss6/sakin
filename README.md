@@ -11,7 +11,7 @@ $ npm install -g sakin
 
 ```sh
 # Create a website in the current directory
-$ sakin
+$ sakin --init
 
 # Create an article in contents/articles
 $ sakin --article "Hello everyone"

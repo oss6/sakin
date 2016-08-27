@@ -9,7 +9,7 @@
             <span>This article was posted in</span>
         {% endif %}
         {% for category in categories %}
-            <a href="{{ g.root_url }}categories/{{ category }}">{{ category }}</a>{{ "," if not loop.last else "" }}
+            <a href="{{ dir_level }}categories/{{ category }}">{{ category }}</a>{{ "," if not loop.last else "" }}
         {% endfor %}
     </div>
 

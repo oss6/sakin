@@ -42,11 +42,11 @@ ga('send', 'pageview');
 {% endif %}
 {% endif %}
 
-<script src="{{ g.root_url }}js/jquery.min.js"></script>
-<script src="{{ g.root_url }}js/bootstrap.min.js"></script>
-<script src="{{ g.root_url }}js/clean-blog.min.js"></script>
+<script src="{{ dir_level }}js/jquery.min.js"></script>
+<script src="{{ dir_level }}js/bootstrap.min.js"></script>
+<script src="{{ dir_level }}js/clean-blog.min.js"></script>
 {% if g.type == "index" %}
-<script src="{{ g.root_url }}js/paginator.js"></script>
+<script src="{{ dir_level }}js/paginator.js"></script>
 {% endif %}
 <!-- Globals -->
 <script>
@@ -55,4 +55,4 @@ ga('send', 'pageview');
     var articles = {{ articles | dump | safe }};
     {% endif %}
 </script>
-<script src="{{ g.root_url }}js/main.js"></script>
+<script src="{{ dir_level }}js/main.js"></script>

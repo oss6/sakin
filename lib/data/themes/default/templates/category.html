@@ -4,7 +4,7 @@
 
 {% for article in articles %}
 <div class="post-preview">
-    <a href="{{ g.root_url }}{{ article.url }}">
+    <a href="{{ dir_level }}{{ article.url }}">
         <h2 class="post-title">{{ article.title }}</h2>
         <h3 class="post-subtitle">{{ article.subtitle }}</h3>
     </a>
