@@ -1,0 +1,62 @@
+/*
+    paginator.css
+
+    Description: Defines basic styling and the default theme for paginator.js
+	Version:     0.0.1
+	Author:      Ossama Edbali
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100);
+
+/* === BASIC STYLING === */
+.paginator-page {
+    display: none;
+}
+
+.paginator-page.paginator-active {
+    display: block;
+}
+
+.paginator-wrapper {
+    margin-top: 22px;
+    text-align: center;
+}
+
+.paginator-wrapper .paginator-link {
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.paginator-wrapper .paginator-link:last-child {
+    margin-right: 0;
+}
+
+.paginator-wrapper .paginator-link.paginator-active {
+    text-decoration: underline;
+}
+
+.paginator-dots {
+    display: none;
+    margin-right: 10px;
+}
+
+.paginator-dots.paginator-active {
+    display: inline;
+}
+
+/* === DEFAULT THEME === */
+.paginator-wrapper {
+    font-family: "Roboto", sans-serif;
+}
+
+.paginator-wrapper .paginator-link {
+    font-weight: 100;
+    padding: 3px 8px;
+    color: #000;
+}
+
+.paginator-wrapper .paginator-link.paginator-active {
+    text-decoration: none;
+    background-color: #ee6e73;
+    color: #fff;
+}

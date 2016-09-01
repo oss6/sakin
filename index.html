@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sakin is a simple yet versatile and efficient static site generator">
+<meta name="author" content="Ossama Edbali">
+
+<title>Sakin</title>
+
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/clean-blog.css" rel="stylesheet">
+<link href="./css/paginator.css" rel="stylesheet">
+
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+    
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./">Sakin</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                
+                <li>
+                    <a href="./documentation">Documentation</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    
+    
+    
+
+
+<header class="intro-header" style="background: #336B59">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>Sakin</h1>
+
+                    
+                    <hr class="small">
+                    <span class="subheading">A simple yet versatile and efficient static site generator</span>
+                    
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+
+
+<h1>Simplicity and flexibility</h1>
+<p>Sakin is a static site generator ideal for small and medium blogs, portfolios and project pages. Its simplistic nature is the reason
+for its efficiency.</p>
+<p>Sakin is flexible because it doesn't constrain you in how you write your content. The deployment is entirely up to you.
+One settings file and a simple directory structure is all you need!</p>
+<h1>Quick start</h1>
+<p>Install <code>sakin</code> using <code>npm install -g sakin</code>.</p>
+<hr>
+<p>The following command creates a <code>sakin</code> website in the current directory:</p>
+<p><code>sakin --init</code></p>
+<hr>
+<p>Create an article in <code>contents/articles</code>:</p>
+<p><code>sakin --article &quot;A beautiful holiday in Italy&quot;</code></p>
+<hr>
+<p>Create a page in <code>contents/pages</code>:</p>
+<p><code>sakin --page &quot;About me&quot;</code></p>
+<hr>
+<p>Generate the website:</p>
+<p><code>sakin --generate</code></p>
+<hr>
+<p>Preview the website with content detection:</p>
+<p><code>sakin --serve 8080</code></p>
+<hr>
+<p>Publish the website according to what you specified in <code>settings.json</code>:</p>
+<p><code>sakin --publish</code></p>
+<hr>
+<h1>Contribute</h1>
+<p>You are more than welcome to raise issues and send PRs! Just follow the guidelines described in the <code>.eslintrc</code> file.</p>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <ul class="list-inline text-center">
+                
+                <li>
+                    <a href="#">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="https://github.com/oss6/sakin">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Ossama Edbali 2016 - Powered by <a href="http://oss6.github.io/sakin">sakin</a></p>
+        </div>
+    </div>
+</div>
+
+    </footer>
+
+    
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-54085200-8', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/clean-blog.min.js"></script>
+
+<script src="./js/paginator.js"></script>
+
+<!-- Globals -->
+<script>
+    var pageSize = Number('10');
+    
+</script>
+<script src="./js/main.js"></script>
+
+</body>
+</html>
