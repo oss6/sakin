@@ -7,7 +7,7 @@
 $ npm install -g sakin
 ```
 
-## Usage
+## Basic usage
 
 ```sh
 # Create a website in the current directory
